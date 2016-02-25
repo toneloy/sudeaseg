@@ -1,0 +1,18 @@
+{
+    "contents" : "corregir_formatos <- function(ifm) {\n\n  ifm %>%\n    mutate(mes = as.integer(mes)) %>%\n    mutate(ano = as.integer(ano)) %>%\n    mutate(monto = as.numeric(corregir_cero(monto))) %>%\n    mutate(monto = convertir_bsf(monto, ano)) %>%\n    mutate(depreciacion = as.numeric(corregir_cero(depreciacion))) %>%\n    mutate(depreciacion = convertir_bsf(depreciacion, ano)) %>%\n    mutate(monto_total = as.numeric(corregir_cero(monto_total))) %>%\n    mutate(monto_total = convertir_bsf(monto_total, ano))\n}\n\ncargar_archivo <- function(file) {\n  primera_linea = read.table(file, nrows = 1, header = FALSE, sep = ';', dec = '.', colClasses = 'character')\n  if(ncol(primera_linea) == 1) {\n    sep = ','\n  } else {\n    sep = ';'\n  }\n\n  data <- read.table(file, header = FALSE, sep = sep, colClasses = 'character') %>%\n    tbl_df()\n\n  data\n}\n\ncargar_directorio <- function(dir) {\n  archivos <- list.files(dir, full.names = TRUE)\n\n  ifm <- data_frame(\n    codigo_empresa = character(),\n    mes = integer(),\n    ano = integer(),\n    codigo_cuenta = character(),\n    monto = numeric(),\n    depreciacion = numeric(),\n    monto_total = numeric()\n  )\n\n  n_archivos <- length(archivos)\n  cargados <- 0\n\n  for(archivo in archivos) {\n    tabla <- cargar_archivo(archivo) %>%\n      distinct() %>%\n      rename(\n        codigo_empresa = V1,\n        mes = V2,\n        ano = V3,\n        codigo_cuenta = V4,\n        monto = V5,\n        depreciacion = V6,\n        monto_total = V7\n      ) %>% corregir_formatos()\n\n    ifm %<>%\n      bind_rows(tabla)\n    cargados <- cargados + 1\n    cat(sprintf('\\r%s/%s archivos cargados\\r', cargados, n_archivos))\n  }\n\n  ifm %>% distinct()\n}\n\ncorregir_cero <- function(x) {\n  gsub('0\\\\.00\\\\.', '0.00', x)\n}\n\nconvertir_bsf <- function(x, ano) {\n  ifelse(ano <= 2007, x / 1000, x)\n}\n\nconsolidar_ifm <- function(ifm, codigo_contable, empresas) {\n  ifm %>%\n    inner_join(clasificar_cuentas(codigo_contable), by = 'codigo_cuenta') %>%\n    inner_join(empresas, by = 'codigo_empresa') %>%\n    mutate(monto_neto = monto_total * multiplicador)\n}\n",
+    "created" : 1456371672159.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1499577057",
+    "id" : "5A552961",
+    "lastKnownWriteTime" : 1456374689,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/R/archivos.R",
+    "project_path" : "R/archivos.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

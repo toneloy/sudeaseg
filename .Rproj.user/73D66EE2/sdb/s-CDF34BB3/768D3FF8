@@ -1,0 +1,18 @@
+{
+    "contents" : "serie <- function(data) {\n\n  data %>%\n    group_by(ano, mes) %>%\n    summarise(monto = abs(sum(monto_neto))) %>%\n    mutate(fecha = as.Date(sprintf('%s-%s-1', ano, mes))) %>%\n    arrange(fecha) %>%\n    ungroup()\n\n}\n",
+    "created" : 1456376472518.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3829597402",
+    "id" : "768D3FF8",
+    "lastKnownWriteTime" : 1456379518,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/R/series.R",
+    "project_path" : "R/series.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

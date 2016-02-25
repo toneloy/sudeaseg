@@ -1,0 +1,17 @@
+{
+    "contents" : "exportPattern(\"^[[:alpha:]]+\")\n# @importFrom magrittr %>% %<>%\n",
+    "created" : 1456377868452.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1259749185",
+    "id" : "C042D683",
+    "lastKnownWriteTime" : 1456378175,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/NAMESPACE",
+    "project_path" : "NAMESPACE",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_namespace"
+}

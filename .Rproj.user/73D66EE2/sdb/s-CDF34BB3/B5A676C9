@@ -1,0 +1,17 @@
+{
+    "contents" : "Package: sudeaseg\nType: Package\nTitle: Análisis de datos para la información financiera mensual de la Superintendencia de la Actividad Aseguradora en Venezuela\nVersion: 0.1\nDate: 2016-02-24\nAuthor: Eloy Eligón\nMaintainer: Eloy Eligón <ee.eligon@gmail.com>\nDescription: Análisis de datos para la información financiera mensual de la Superintendencia de la Actividad Aseguradora en Venezuela\nLicense: MIT\nLazyData: TRUE\nImports:\n  dplyr,\n  magrittr\nDepends:\n  dplyr,\n  magrittr\n",
+    "created" : 1456378693840.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3250207514",
+    "id" : "B5A676C9",
+    "lastKnownWriteTime" : 1456378718,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "type" : "dcf"
+}

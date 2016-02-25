@@ -1,0 +1,18 @@
+{
+    "contents" : "primas <- function(ifm) {\n  ifm %>% filter(tipo_monto == 'Primas')\n}\n\nsiniestros_pagados <- function(ifm) {\n  ifm %>% filter(tipo_monto == 'Siniestros Pagados')\n}\n\ncomisiones <- function(ifm) {\n  ifm %>% filter(tipo_monto == 'Comisiones')\n}\n",
+    "created" : 1456376440308.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3613538203",
+    "id" : "3B43F26D",
+    "lastKnownWriteTime" : 1456376530,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/R/filtros.R",
+    "project_path" : "R/filtros.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

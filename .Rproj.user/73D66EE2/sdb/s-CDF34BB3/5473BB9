@@ -1,0 +1,18 @@
+{
+    "contents" : "ranking_areas <- function(data) {\n\n  ranking_global <- ranking_global(data)\n\n  data %>%\n    mutate(empresa = factor(empresa, levels = ranking_global$empresa)) %>%\n    group_by(empresa, area_seguros) %>%\n    summarise(monto = abs(sum(monto_neto))) %>%\n    ungroup() %>%\n    group_by(area_seguros) %>%\n    mutate(ranking = min_rank(-monto))\n}\n\nranking_global <- function(data) {\n\n  data %<>%\n    group_by(empresa) %>%\n    summarise(monto = abs(sum(monto_neto))) %>%\n    arrange(desc(monto)) %>%\n    mutate(ranking = min_rank(-monto)) %>%\n    ungroup()\n\n  data %>%\n    mutate(empresa = factor(empresa, levels = data$empresa))\n\n}\n",
+    "created" : 1456371306885.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4206886428",
+    "id" : "5473BB9",
+    "lastKnownWriteTime" : 1456377392,
+    "path" : "C:/Users/Elwilton/Google Drive/Paquetes/sudeaseg/R/ranking.R",
+    "project_path" : "R/ranking.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
