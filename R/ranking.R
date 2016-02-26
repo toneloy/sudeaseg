@@ -40,7 +40,7 @@ graficar_ranking_global <- function(data, ...) {
     add_tooltip(function(x) {
       sprintf(
         '%s<br/><b>Bs. %s</b>',
-        x$x_, format(x$stack_upr_ - x$stack_lwr_, big.mark = '.', decimal.mark = ',')
+        x$x_, format(x$stack_upr_ - x$stack_lwr_, big.mark = '.', decimal.mark = ',', scientific = FALSE)
       )
     })
 }
@@ -60,7 +60,7 @@ graficar_ranking_areas <- function(data, ...) {
     add_tooltip(function(x) {
       sprintf(
         '%s<br/>%s<br/><b>Bs. %s</b>',
-        x$x_, x$area_seguros, format(x$stack_upr_ - x$stack_lwr_, big.mark = '.', decimal.mark = ',')
+        x$x_, x$area_seguros, format(x$stack_upr_ - x$stack_lwr_, big.mark = '.', decimal.mark = ',', scientific = FALSE)
       )
     })
 }
