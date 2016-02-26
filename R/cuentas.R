@@ -4,7 +4,7 @@ calcular_area_negocio <- function(codigo_cuenta) {
   resultado <- ifelse(
     substr(codigo_cuenta, 1, 2) %in% apply(expand.grid(c(3, 5), c(0, 2, 3, 4)), 1, function(x) paste(x[1], x[2], sep = "")),
     'Seguros',
-    'GestiÃ³n general'
+    'Gestión general'
   )
   resultado
 }
