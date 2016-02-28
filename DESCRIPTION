@@ -14,4 +14,8 @@ Imports:
 Depends:
   dplyr,
   magrittr,
-  ggvis
+  ggvis,
+  shiny,
+  lubridate
+URL: https://github.com/toneloy/sudeaseg
+BugReports: https://github.com/toneloy/sudeaseg/issues
