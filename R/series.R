@@ -49,15 +49,16 @@ serie_areas <- function(data) {
 #' Graficar serie de tiempo
 #'
 #' @param data Un data.frame.
-#' @param data Un data.frame.
-#' @return Un gráfico de líneas \code{ggvis} con \code{x = ~fecha} y \code{y = ~monto} y \code{fill = ~area_seguros}.
+#' @param titulo_y Un título para el eje de las y. Por defecto es 'Monto'
+#' @param tooltip \code{logical}. Indica si se desea agregar un tooltip interactivo. Por defecto es \code{TRUE}.
+#' @return Un gráfico de líneas \code{ggvis} con \code{x = ~fecha} y \code{y = ~monto}.
 #' @examples
 #' ifm %>%
 #'   filter(mes == 12) %>%
 #'   consolidar_ifm(codigo_contable, empresas) %>%
 #'   filter(tipo_monto == 'Primas') %>%
-#'   graficar_serie_areas()
-#' @description Grafica series de tiempo por área de seguros utilizando \code{ggvis}.
+#'   graficar_serie()
+#' @description Grafica una serie de tiempo utilizando \code{ggvis}.
 
 graficar_serie <- function(data, titulo_y = 'Monto', tooltip = TRUE) {
 
@@ -85,7 +86,7 @@ graficar_serie <- function(data, titulo_y = 'Monto', tooltip = TRUE) {
 #' @param data Un data.frame.
 #' @param titulo_y Un título para el eje de las y. Por defecto es 'Monto'
 #' @param tooltip \code{logical}. Indica si se desea agregar un tooltip interactivo. Por defecto es \code{TRUE}.
-#' @return Un gráfico de líneas \code{ggvis} con \code{x = ~fecha} y \code{y = ~monto} y \code{fill = ~area_seguros}.
+#' @return Un gráfico de líneas \code{ggvis} con \code{x = ~fecha}, \code{y = ~monto} y \code{stroke = ~area_seguros}.
 #' @examples
 #' ifm %>%
 #'   filter(mes == 12) %>%
