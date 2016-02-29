@@ -11,9 +11,9 @@
 ranking_global <- function(data) {
 
   data %>%
-    group_by(empresa, tipo_monto) %>%
+    group_by(empresa, tipo_monto, ano, mes) %>%
     summarise(monto = abs(sum(monto_neto))) %>%
-    ungroup() %>%
+    group_by(ano, mes) %>%
     arrange(desc(monto)) %>%
     mutate(ranking = min_rank(-monto)) %>%
     ungroup() %>%
@@ -36,11 +36,11 @@ ranking_areas <- function(data) {
   ranking_global_df <- ranking_global(data)
 
   result <- data %>%
-    group_by(empresa, tipo_monto, area_seguros) %>%
+    group_by(empresa, tipo_monto, area_seguros, ano, mes) %>%
     summarise(monto = abs(sum(monto_neto))) %>%
-    ungroup() %>%
-    group_by(area_seguros) %>%
-    mutate(ranking = min_rank(-monto))
+    group_by(ano, mes, area_seguros) %>%
+    mutate(ranking = min_rank(-monto)) %>%
+    ungroup()
 
   if(is.data.frame(ranking_global_df)) {
     result %>% mutate(empresa = factor(empresa, levels = ranking_global_df$empresa))
